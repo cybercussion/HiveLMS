@@ -1,0 +1,290 @@
+<div id="about" class="blackgrad selectable page">
+<div class="cells-black"><img src="img/cells-black.jpg" /></div>
+
+<div class="wrapper">
+    <div class="scroller scroll">
+    	<div class="spacer"></div>
+    	<p><img src="img/hive_icon.png" /></p>
+    	<p><strong>Hive</strong><br />Version 1.0 beta 2</p>
+    	<div class="about_content">
+        	<h5>Multi-device LMS</h5>
+        	<img class="floatR" src="img/devices.png" />
+        	<p>Hive was created as a light weight LMS(<i>Learning Management Server</i>) that supports mobile devices, and desktops.  The goal of this project is to show that utilizing HTML5, Cascading Style Sheets (<i>CSS</i>), JavaScript(<i>ECMAScript</i>), Webkit, and other 3rd Party jQuery plugins, can accomplish a multi-device solution.</p>
+        	<p>The LMS has been written in PHP and mySQL, with SCORM 2004 implemented.  This is a work in progress.  Recently this was created as part of a prototype, so SCORM 2004, gradebooks, forums or things of that sort are currently lacking.</p>  
+        	<img class="" style="margin-left: -20px;" src="img/default.png" />
+        	<h6>Browser Compatibility</h6>
+        	<p>The scope of the project focused on modern browsers (FireFox, Safari/Mobile, Chrome/Mobile), but made the attempt to remain compliant with Internet Explorer 8.  Some of the main difficulties with older browsers is they lack the JavaScript horsepower, transparent PNG support, shadowing, and open standards to make this an easy task.  Opera currently does not support CSS gradients, and we've noticed some rounded corner issues.  One of the main things to remember is this portion is typically cosmetic, and there are always work arounds.</p>
+        	<p>Zero browser specific code has been written, but we do detect support of the webkit or touch.</p>
+        	<p>Some iOS notes: The original goal was to allow this to be a Web App "Add to Homescreen", however a couple things made that difficult due to the way the LMS launches external content:</p>
+        	<ol class="about_list">
+        		<li><p>IFRAME's are not well supported on the iOS (however, iOS 4.2 has made some updates to the IFRAME support.  Those are currently being tested)</p></li>
+        		<li><p>New Windows override the Web App window, thus eliminating the LMS window.  This terminates the SCORM communication and there is no way back.</p></li>
+        	</ol>
+        	<img class="floatR" src="css/img/ipadcontent.png" />
+        	<p>Again, this only applies to adding the Hive LMS to your "homescreen", and for now the "Web App" capability was disabled.  It's possible it may come back after the iOS 4.2 update.</p>
+        	<br />
+        	<h6>Content Approach</h6>
+        	<p>In order to use as much as the browser real-estate as possible, the Shareable Content objects are allowed to scale to the full size of the browsers viewport.  This was especially important on the iPad, and that inspiration crossed over to the desktop.</p>
+        	<p>In order to keep both the iPad and iPhone/Android 2.2 devices in visual sync, we utilize the <code>@media</code> abilities in CSS to override the default behavior for devices at there maximum widths.</p>
+        	<p>One very important thing after building HTML content - There are many, many ways to load and display content.  This implementation attempted to address screen lag between pages, webkit transitions or jQuery margin based ones to mimic the same thing.  Websites by nature load when they load, and the desire was to smooth that out.  At the same time, preloader animations were undesirable.  This approach allows for the content to load in the background, displaying the first page as soon as its available.</p>
+        	<br />
+        	<div class="nfacts floatR">
+		        <div class="ntitle">
+		            Nutrition Facts
+		        </div>
+		        <div class="nheader indent">
+		            <p>Reduced Serving Size 1 site 91.75 KB / *(<i>47.65 KB) gzip estimated</i></p>
+		            <p>Reduced HTTP Servings Per Batch 3 Files</p>
+		        </div>
+		        <div class="nblackbar thick"></div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p>Original Amount Per Serving</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p>HTTP Hits 15</p>
+		            </div>
+		
+		            <div class="ncell floatR">
+		                <p>Total Kilobytes 213.58 KB</p>
+		            </div>
+		        </div>
+		        <div class="nblackbar thin"></div>
+		        <div class="nrow">
+		            <div class="ncell floatR">
+		                <p><b>% Reduction Value *</b></p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p><b>Total Fat</b> 121.83 KB / *(<i>165.93 KB</i>)</p>
+		            </div>
+		
+		            <div class="ncell floatR">
+		                <p></p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p><b>Cascading Style Sheet Fat</b> 4.2 KB</p>
+		            </div>
+		            <div class="ncell floatR">
+		                <p>15%</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>css/styles.css (27.23 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p><b>JavaScript Fat</b> 90.99 KB</p>
+		            </div>
+		            <div class="ncell floatR">
+		                <p>51%</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/jquery/jquery-1.4.3.min.js (75.92 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/jquery/plugins/jquery.blockUI.js (14.98 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/jquery/plugins/jquery.cookie.js (3.57 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/jquery/plugins/jquery.ibutton.js (14.14 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/jquery/plugins/touchscroll.js (9.96 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/log/console_log.js (3.23 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/communication/communication.js (3.27 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/profile/login.js (5.42 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/navigation/navigation.js (24.04 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/portal.js (9.11 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/events.js (1.11 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/scorm/SCORM_2004.js (7.89 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>js/portal/livequiz/LIVEQUIZ_API.js (5.1 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p><b>HyperText Markup Language Fat</b> 3.61 KB</p>
+		            </div>
+		            <div class="ncell floatR">
+		                <p>42%</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL moreindent">
+		                <p>index.html (8.61 KB)</p>
+		            </div>
+		        </div>
+		        <div class="nblackbar thin"></div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p>Total Savings</p>
+		            </div>
+		
+		            <div class="ncell floatR">
+		                <p>57%</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p>Estimated Gzip Savings</p>
+		            </div>
+		
+		            <div class="ncell floatR">
+		                <p>78%</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p>Vitamin CSS:</p>
+		            </div>
+		
+		            <div class="ncell floatR">
+		                <p>23.03 KB / *(<i>6.91 KB</i>)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p>Vitamin JS:</p>
+		            </div>
+		
+		            <div class="ncell floatR">
+		                <p>86.75 KB / *(<i>39.04 KB</i>)</p>
+		            </div>
+		        </div>
+		        <div class="nrow">
+		            <div class="ncell floatL">
+		                <p>Vitamin HTML:</p>
+		            </div>
+		
+		            <div class="ncell floatR">
+		                <p>5 KB / *(<i>1.7 KB</i>)</p>
+		            </div>
+		        </div>
+		        <div class="nfooter">
+		            <p>* The Percent Reduction Values are based on a the amount of Whitespace, Comments, Variable Shrinking and File Merging, along with estimated gzipping. The values here may not be 100% accurate because the recipes have not been professionally evaluated nor have they been evaluated by the U.S. FDA.</p>
+		        </div>
+		        <div class="nblackbar thin"></div>
+		        <div class="nfooter">
+		            <p><b>Ingredients:</b> Pre-Hypertext-Processor(PHP), <a href="http://www.lateralcode.com/css-minifier" target="_blank">Stunningly Simple CSS Minifier</a>, <a href="https://github.com/rgrove/jsmin-php/" target="_blank">JSMin</a>, <a href="http://joliclic.free.fr/php/javascript-packer/en/" target="_blank">Packer</a>, <a href="http://www.aota.net/forums/printthread.php?t=12016&pp=10" target="_blank">HTML Minify</a>.</p>
+		            <br />
+		            <p><b>MAY CONTAIN TRACES OF PEANUTS AND LOOSE COUPLING</b></p>
+		        </div>
+		    </div>
+        	<h6>Tips/Tricks</h6>
+        	<p>The following items were discovered as possible ways to improve the design, flow, bandwidth and amount of HTTP calls (<i>lag</i>) the SCO (<i>Shareable Content Object</i>) makes:</p>
+
+        	<ol class="about_list">
+        		<li><p><b>JavaScript Templates:</b> This allows for a data model to markup synchronization, and a reduction of HTTP calls.  It also allows for unique identifiers to be better maintained.</p></li>
+        		<li><p><b>CSS Sharing:</b> Merge as much of the shared styling at the top level, as not to keep making it get downloaded per template/page.  Possibly consider merging it all into one file.</p></li>
+        		<li><p><b>Minify/Merge:</b> Shrink your code down, some times as much as 79% reduction, and limits HTTP traffic on final Production deployments.  Removing useless formatting, whitespace, line returns etc ...  This interface was reduced by 57%, then with gzipping a total of 78% was achieved.  15 HTTP calls were eliminated.</p></li>
+        		<li><p><b>Pre-render in background:</b> Telling a page to transition in, and initialize at the same time will result in visual lag.</p></li>
+        		<li><p><b>Master the Webkit:</b> If you go in trying to animate with JavaScript you're going to be shockingly unimpressed with the performance on mobile devices.  Many things you had to do with a bunch of JavaScript, now is accomplished thru CSS.  And unfortunately, if thats your first impression of HTML5, you probably browsed on.  Never fear however, the webkit has your back!</p></li>
+        		<li><p><b>Touch vs Mouse:</b> These events can be managed universally, but they need to be managed.</p></li>
+        		<li><p><b>iOS Fixed Position:</b> <code>position: fixed;</code> doesn't work the way you're use to.  If you have scrolling content, and a desire for a sticky header or footer, you have to consider using a Webkit scroll solution.  These vary in size, and complexity.</p></li>
+        		<li><p><b>Target Delivery:</b> Frameworks exist for mobile devices, but most those frameworks are geared towards Webkit browsers.  You try to view these with Internet Explorer, FireFox or Opera and they simply will not look right.  Planning has to go into what will be looking at your content, because you'll have to make design compromises.</p></li>
+        		<li><p><b>Audio:</b> Mobile devices treat audio a bit different than Desktops.  Audio can only be triggered on a user action, and that can also result in some lag attempting to trigger sounds.  It was enough lag, that it was disabled for touch devices.</p></li>
+        		<li><p><b>Tools/Tricks</b> YSlow from yahoo and Page Speed both great resources and add-ons to FireFox with FireBug.  It will help you find the pork and deal with it accordingly.</p></li>
+        	</ol>
+        	<p>It is a delicate balance, and requires scrutiny for the application of all the items above.  Shared the facts about the build of this project (*see Nutrition Facts).</p>
+   		    <br />
+        	<br />
+        	<p>Thanks for taking the time to review this,</p>
+        	<p>Mark Statkus</p>
+        	<p><a href="mailto:mark.statkus@pearson.com">mark.statkus@pearson.com</a></p>
+        	<p>360.851.1341 / Skype: mark.statkus</p>
+        	<br />
+        	<br />
+        	<br />
+        	<h6>Inspiration:</h6>
+        	<ol class="about_list developer">
+        		<li><p><a href="http://jqtouch.com" target="_blank">JQTouch</a></p></li>
+        		<li><p><a href="http://sencha.com" target="_blank">Sencha Touch</a></p></li>
+        		<li><p><a href="http://developer.apple.com/devcenter/safari" target="_blank">Safari Developer Center</a></p></li>
+        		<li><p><a href="http://4point7.net" target="_blank">Andrew Philpott's Sandbox</a></p></li>
+        		<li><p><a href="http://scorm.com" target="_blank">Rustici Software</a></p></li>
+        		<li><p><a href="http://mattlaine.com/blog/" target="_blank">Matt Laine</a></p></li>
+        		<li><p><a href="http://dev.w3.org/html5/spec/Overview.html" target="_blank">W3C</a></p></li>
+        		<li><p><a href="http://rakaz.nl/2009/09/iphone-webapps-101-getting-safari-out-of-the-way.html" target="_blank">Rakaz</a></p></li>
+        		<li><p><a href="http://labs.dragoninteractive.com/" target="_blank">Dragon Labs</a></p></li>
+        	</ol>
+        	<h6>Design:</h6>
+        	<ol class="about_list design">
+        		<li><p><a href="http://bigstockphoto.com" target="_blank">BigStock</a></p></li>
+        		<li><p><a href="http://dragonartz.wordpress.com" target="_blank">DragonArtz Designs</a></p></li>
+        		<li><p><a href="http://sohtanaka.com" target="_blank">Soh Tanaka</a></p></li>
+        		<li><p><a href="http://glyphish.com" target="_blank">Glyphish</a></p></li>
+        		<li><p><a href="http://www.vecteezy.com" target="_blank">Vecteezy</a></p></li>
+        	</ol>
+        	<h6>Plugins:</h6>
+        	<ol class="about_list jquery">
+        		<li><p><a href="http://jQuery.com" target="_blank">jQuery</a></p></li>
+        		<li><p><a href="http://jquery.malsup.com/block" target="_blank">Block UI</a></p></li>
+        		<li><p><a href="http://plugins.jquery.com/project/wrapSelection" target="_blank">Wrap Selection</a></p></li>
+        		<li><p><a href="http://wilq32.adobeair.pl/jQueryRotate/Wilq32.jQueryRotate.html" target="_blank">Rotate</a></p></li>
+        		<li><p><a href="http://www.zachstronaut.com/projects/rotate3di/" target="_blank">Rotate 3Di</a></p></li>
+        	</ol>
+        	<h6>Configuration / Communication / Management:</h6>
+        	<ol class="about_list">
+        		<li><p>Dropbox - http://dropbox.com</p></li>
+        		<li><p>Google Docs - http://docs.google.com</p></li>
+        		<li><p>Skype - http://skype.com</p></li>
+        	</ol>
+        	<br />
+        	<p>I'd like to specially thank David Kaneda @ JQtouch/Sencha Labs for much of the ground breaking on HTML/Webkit implementations.  I would not of done much of the iOS/Webkit work without it.  I was unable to directly use JQTouch or Sencha Touch due to them strictly being for iOS mobile devices.</p>
+		</div>
+    </div>
+</div>
+<div class="rainbow"></div>
+<div class="footer"><a href="#" class="whiteButton goback"><span>Close</span></a></div>
+</div>

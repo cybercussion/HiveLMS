@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hive</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <link rel="apple-touch-icon-precomposed" href="img/hive_icon.png"/>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	</head>
+	<body class="blackgrad">
+		<div id="portal">
+			<!-- Build all pages out here -->
+	        <div id="login" class="page current">
+	        	<div class="toolbar">
+	        		<div class="rainbow"></div>
+	                <h1>Hive</h1>
+	                <a class="btn slideup" id="infoButton" href="html/about.html"><span>About</span></a>
+	            </div>
+	            <div class="default">
+		        	<div class="p_content clouds">
+			        	<div class="login_cont">
+			        		<div id="login_frm">
+			        			<div class="dialog">
+									 <div class="content">
+									 	<div class="icon_cell"></div>
+									  	<div class="t"></div>
+						        			<form id="l_frm" method="post" action="" autocomplete="off">
+												<h3 style="padding-top: 10px;">Log In</h3>
+												<p><label for="accountName" class="label">E-mail Address</label><input id="accountName" value="student@hivelms.com" name="accountName" maxlength="320" type="email" tabindex="1" class="input" autocapitalize="off" autocorrect="off" /></p>
+												<p><label for="password" class="label">Password</label><input id="password" name="password" value="password" maxlength="16" type="password" tabindex="2" autocomplete="off" class="input" autocapitalize="off" autocorrect="off" /></p>
+												
+												<!--span id="remember-me">
+													<label for="persistLogin">
+														<input type="checkbox" checked="checked" name="persistLogin" id="persistLogin" />
+														Keep me logged in
+													</label>
+												</span-->
+												<button	id="login_btn" class="ui-button button1 " type="submit">
+													<span><span>Log In</span></span>
+												</button>
+												<div id="login_status"></div>
+											</form>
+										</div>
+								 	<div class="b"><div></div></div>
+								</div>
+							</div>
+			        		<div class="LL_c1 L_bg1"></div>
+			        		<div class="R_corner R_bg1"></div>		
+			        	</div>
+			        </div>
+			    </div>
+	        </div>
+	        <!-- Assignments -->
+	        <div id="assignments" class="page">
+	            <div class="toolbar">
+	            	<div class="rainbow"></div>
+	                <h1>Assignments</h1>
+	                <a class="backbtn back" href="#"><span>Back</span></a>
+	            </div>
+	            <div id="Assign_C" class="default_tall">
+	            	<div class="theader"></div>
+	            	<div class="foot LL_c2 L_bg2"></div>
+	            	<div class="foot LR_c1 R_bg2"></div>
+		            <div class="toolbar_c"></div>
+	            </div>
+	        </div>
+	            
+	        <!-- Lessons -->
+	        <div id="lessons" class="page">
+	            <div class="toolbar">
+	            	<div class="rainbow"></div>
+	                <h1>Lessons</h1>
+	                <a class="backbtn back" href="#"><span>Back</span></a>
+	            </div>
+	            <div id="Lesson_C" class="default_tall">
+	            	<div class="theader"></div>
+	            	<div class="foot LL_c2 L_bg2"></div>
+	            	<div class="foot LR_c1 R_bg2"></div>
+		            <div id="lesson_list" class="toolbar_c">
+		            	<div class="assigngroup">
+			            	<div class="container rounded L_bg1">
+				            	<ol class="steps rounded">
+									<li>
+										<a class="arrow" rel="content/ic/demo1/player.html" href="#sco_wrapper">
+											<div class="list_bar">
+												<h6>Demo 1: SCO</h6>
+												<div class="list_nav">
+													<div class="nav_icon"></div>
+												</div>
+											</div>
+											<div class="list_desc">
+												<div class="minical rounded floatR">
+													<div class="bar roundedTop">Test</div>
+													<div class="date">00</div>
+												</div>
+												<p>Placeholder currently, need to make content.</p>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a class="arrow" rel="content/ic/demo2/player.html" href="#sco_wrapper">
+											<div class="list_bar">
+												<h6>Demo 2: SCO</h6>
+												<div class="list_nav">
+													<div class="nav_icon"></div>
+												</div>
+											</div>
+											<div class="list_desc">
+												<div class="minical rounded floatR">
+													<div class="bar roundedTop">Test</div>
+													<div class="date">00</div>
+												</div>
+												<p>Another Placeholder, need to make content.</p>
+											</div>
+										</a>
+									</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+	            </div>
+	        </div>
+	        
+	        <!-- SCO Wrapper -->
+	        <div id="sco_wrapper" class="page">
+	        	<div id="_sco" class="default blackgrad"></div>
+	        </div>
+		</div>
+		
+		<!-- Developer Edition -->
+		<script type="text/javascript" src="js/jquery/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery/plugins/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="js/jquery/plugins/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/jquery/plugins/jquery.ibutton.js"></script>
+		<script type="text/javascript" src="js/jquery/plugins/touchscroll.js"></script>
+		<script type="text/javascript" src="js/portal/log/console_log.js"></script>
+		<script type="text/javascript" src="js/portal/communication/communication.js"></script>
+		<script type="text/javascript" src="js/portal/profile/login.js"></script>
+		<script type="text/javascript" src="js/portal/navigation/navigation.js"></script>
+		<script type="text/javascript" src="js/portal/assignments/assignments.js"></script>
+		<script type="text/javascript" src="js/portal/portal.js"></script>
+		<script type="text/javascript" src="js/portal/events.js"></script>
+		<script type="text/javascript" src="js/portal/scorm/SCORM_2004.js"></script>
+		<!--script type="text/javascript" src="js/portal/livequiz/LIVEQUIZ_API.js"></script-->
+		<script type="text/javascript">var enableDebug=1, portal = new Portal();</script>
+	</body>
+</html>
