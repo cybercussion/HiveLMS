@@ -10,8 +10,8 @@ class DB {
 	public function __construct() {
 		$this->host = "localhost";
 		$this->db   = "hive";
-		$this->user = "sqluser";
-		$this->pass = "sqlu5er";
+		$this->user = "username";
+		$this->pass = "password";
 		$this->link = mysql_connect($this->host, $this->user, $this->pass) or trigger_error("MySQL Connection Database Error: " . mysql_error(), FATAL);
 		mysql_select_db($this->db);
 	}
