@@ -31,7 +31,7 @@ CREATE TABLE `hive_course` (
 -- Dumping data for table `hive_course`
 -- 
 
-INSERT INTO `hive_course` VALUES (1, NULL, 'title', 'Demo Innovation Challenge', 1);
+INSERT INTO `hive_course` VALUES (1, NULL, 'title', 'Demo', 1);
 
 -- --------------------------------------------------------
 
@@ -51,7 +51,7 @@ CREATE TABLE `hive_course_data` (
 -- Dumping data for table `hive_course_data`
 -- 
 
-INSERT INTO `hive_course_data` VALUES (1, 1, 'description', 'This is the Innovation Challenge demo assignment.');
+INSERT INTO `hive_course_data` VALUES (1, 1, 'description', 'Demo Assignment.');
 
 -- --------------------------------------------------------
 
@@ -72,8 +72,8 @@ CREATE TABLE `hive_lesson` (
 -- Dumping data for table `hive_lesson`
 -- 
 
-INSERT INTO `hive_lesson` VALUES (1, 1, 'title', 'IC SCO', 1);
-INSERT INTO `hive_lesson` VALUES (2, 1, 'title', 'Literature SCO', 2);
+INSERT INTO `hive_lesson` VALUES (1, 1, 'title', 'Temp SCO 1', 1);
+INSERT INTO `hive_lesson` VALUES (2, 1, 'title', 'Temp SCO 2', 2);
 
 -- --------------------------------------------------------
 
@@ -93,10 +93,10 @@ CREATE TABLE `hive_lesson_data` (
 -- Dumping data for table `hive_lesson_data`
 -- 
 
-INSERT INTO `hive_lesson_data` VALUES (1, 1, 'path', 'content/ic/demo1/player_dev.html');
-INSERT INTO `hive_lesson_data` VALUES (2, 2, 'path', 'content/ic/demo2/player_dev.html');
-INSERT INTO `hive_lesson_data` VALUES (3, 1, 'description', 'This is a joint SCO with a mix of templates.');
-INSERT INTO `hive_lesson_data` VALUES (4, 2, 'description', 'This is a literature SCO featuring 4 templates.');
+INSERT INTO `hive_lesson_data` VALUES (1, 1, 'path', 'content/project/demo1/player_dev.html');
+INSERT INTO `hive_lesson_data` VALUES (2, 2, 'path', 'content/project/demo2/player_dev.html');
+INSERT INTO `hive_lesson_data` VALUES (3, 1, 'description', 'Demo Content');
+INSERT INTO `hive_lesson_data` VALUES (4, 2, 'description', 'Demo Content');
 
 -- --------------------------------------------------------
 
@@ -218,24 +218,6 @@ CREATE TABLE `profile_assignments` (
 -- 
 -- Dumping data for table `profile_assignments`
 -- 
-
-INSERT INTO `profile_assignments` VALUES (1, 'd5464516d59102dccd60d5471cbff3e4', 1, 1, 1, '2010-11-12 09:51:09', '2010-12-12 09:51:09');
-INSERT INTO `profile_assignments` VALUES (2, '0c3a301f4fae6a7fc99b7079cabd8b25', 1, 1, 1, '2010-11-12 11:20:54', '2010-12-12 11:20:54');
-INSERT INTO `profile_assignments` VALUES (3, '27705ec8d7d9a8b586cba2e71b70310d', 1, 1, 1, '2010-11-13 14:06:33', '2010-12-13 14:06:33');
-INSERT INTO `profile_assignments` VALUES (4, 'd636816d3857fa9d801057e62118c9c8', 1, 1, 1, '2010-11-13 19:10:28', '2010-12-13 19:10:28');
-INSERT INTO `profile_assignments` VALUES (5, 'e5386f88a34490fa388d4b5b7d05263d', 1, 1, 1, '2010-11-13 21:09:26', '2010-12-13 21:09:26');
-INSERT INTO `profile_assignments` VALUES (6, '74c7b984e61a2b09693aec69d905595e', 1, 1, 1, '2010-11-14 09:49:31', '2010-12-14 09:49:31');
-INSERT INTO `profile_assignments` VALUES (7, 'f741896604150e49b406a53c393ab9b8', 1, 1, 1, '2010-11-15 10:30:16', '2010-12-15 10:30:16');
-INSERT INTO `profile_assignments` VALUES (8, '09a1404f4b9f84599dfffd8a76a7096b', 1, 1, 1, '2010-11-15 10:31:03', '2010-12-15 10:31:03');
-INSERT INTO `profile_assignments` VALUES (9, '0a35ff9dfa3458c0a9eff1772d8f2f1c', 1, 1, 1, '2010-11-15 10:31:12', '2010-12-15 10:31:12');
-INSERT INTO `profile_assignments` VALUES (10, '6879d8be5aaf379cb763ebab55395bdc', 1, 1, 1, '2010-11-15 10:31:50', '2010-12-15 10:31:50');
-INSERT INTO `profile_assignments` VALUES (11, '57502e2418d3177acd59a64084bce7fe', 1, 1, 1, '2010-11-15 10:32:43', '2010-12-15 10:32:43');
-INSERT INTO `profile_assignments` VALUES (12, 'f7cb37f78ae8248d2eefc43f10b3d166', 1, 1, 1, '2010-11-16 14:56:51', '2010-12-16 14:56:51');
-INSERT INTO `profile_assignments` VALUES (13, '9f442d6e20cf900484883cd5204eefac', 1, 1, 1, '2010-11-16 14:58:43', '2010-12-16 14:58:43');
-INSERT INTO `profile_assignments` VALUES (14, 'd6f749e7b8cbebc9ba87d825d6e27857', 1, 1, 1, '2010-11-19 01:04:45', '2010-12-19 01:04:45');
-INSERT INTO `profile_assignments` VALUES (15, 'fcf3ac233f4c640dcdf4577b5a328692', 1, 1, 1, '2010-11-19 13:33:55', '2010-12-19 13:33:55');
-INSERT INTO `profile_assignments` VALUES (16, 'd531a91c3ba8e9f5fab32fd7a96fe7dc', 1, 1, 1, '2010-11-19 13:38:57', '2010-12-19 13:38:57');
-INSERT INTO `profile_assignments` VALUES (17, '3f3b08e245475c0b71b6d688062eb8ef', 1, 1, 1, '2010-11-19 16:02:22', '2010-12-19 16:02:22');
 
 -- --------------------------------------------------------
 
