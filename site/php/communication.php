@@ -77,7 +77,8 @@
 	 * passed has HTML strings when I'm trying to send JSON strings.
 	*/
   	try {
-		$data = json_decode(str_replace("\\", "", $_POST['data']));
+		//$data = json_decode(str_replace("\\", "", $_POST['data'])); // Fix for PHP 5.2'ish 
+		$data = json_decode($_POST['data']);
 		if($data == "") {
 			trigger_error('Sorry, no public view available.', FATAL);
 		}
