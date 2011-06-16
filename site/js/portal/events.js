@@ -1,3 +1,4 @@
+/*global $, JQuery, debug, portal*/
 /**
  * Events are the onload, onbeforeunload and onunload management for the page.  You
  * can route these events accordingly to manage app startup and exit.
