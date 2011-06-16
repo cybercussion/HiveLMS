@@ -5,12 +5,12 @@
 	4 = Info/Report
 	Usage:  debug("Message", 3);
  */
-var enableDebug;
+var enableDebug, domainURL;
 
 // dead function for no console .. could route to alert prompts but I'm not that evil.
 function noconsole(msg) {} // Mostly for IE7 and prior
 function debug(msg, lvl) {
-	if(enableDebug === 1) {
+	if (enableDebug === 1) {
 		if (!window.console) { // Just in case the developer doesn't have a debug log installed in there browser
 			window.console = {};
 			window.console.info = noconsole;
@@ -20,19 +20,18 @@ function debug(msg, lvl) {
 			window.console.trace = noconsole;
 		}
 		switch (lvl) {
-	        case 1:
-	            console.error(msg);
-	            break;
-	        case 2:
-	            console.warn(msg);
-	            break;
-	        case 4:
-	            console.info(msg);
-	            break;
-	        case 3:
-	        default:
-	           	console.log(msg);
-	            break;
+			case 1:
+				console.error(msg);
+				break;
+		    case 2:
+		    	console.warn(msg);
+		        break;
+		    case 4:
+		        console.info(msg);
+		        break;
+		    default:
+		       	console.log(msg);
+		        break;
         }
 	}
 }
@@ -56,7 +55,7 @@ if (qsvars.length > 0) {
 				break;
 			case "debug":
 			case "enabledebug":
-				enableDebug = parseInt(nv[1]);
+				enableDebug = parseInt(nv[1], 10);
 				break;
 			default:
 				debug("Portal: Unknown QueryString data sent ... " + nv[0] + " = " + nv[1], 2);
