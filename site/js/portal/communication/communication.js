@@ -1,3 +1,4 @@
+/*global $, JQuery, debug, enableDebug*/
 /**
  * Communication
  * This is the Communication handling for the Portal. It sends JSON based data as text
@@ -14,6 +15,15 @@ function Communication(options) {
 			domainURL: ""
   		},
   		settings = $.extend(defaults, options);
+  	
+  	// Private /////////////////	
+  	function currentTime() {
+		var d = new Date();
+		return d.getTime() + (Date.remoteOffset || 0);
+	}
+	
+	// End Private /////////////
+	// Public //////////////////
 	/**
 	 * Send Message
 	 * Public Method to send JSON objects to the Backend via Ajax.
@@ -21,60 +31,80 @@ function Communication(options) {
 	 * @param _callBack {Function} Target of what to call after this finishes
 	 * @param _from {String} Handy info as to who requested this for debugging
 	 */
-	this.sendMessage = function(_send, _callBack, _from) {
-		if(typeof(_from) !== "string") {
+	this.sendMessage = function(send, callBack, from, sync) {
+		var startTime = currentTime(),
+			endTime,
+			responseTime,
+			dnsDrag,
+			recieve_output, 
+			json_obj,
+			send_output,
+			returnMethod = callBack,
+			send_str     = JSON.stringify(send),
+			// This is tricky, syncronous 'true' means this is going to stall the browser till its done (like a exit), but it has to be done
+			// because if the LMS is refreshed the SCO The data could be lost without it.
+			forcedSync  = (sync) ? false : true;     // Should be false unless Commit() is called from SCORM 
+			                                         // (would like to make this smart so it doesn't hold up the boat.)
+			//exiting      = isExit ? false : ;      // isExit isn't available yet since the event ladder hasn't made it here yet.
+		debug("Communication: Is sending a async communication " + forcedSync, 3);
+		if(typeof(from) !== "string") {
 			debug("Communication: Developer Warning - Please pass the requested script name for trouble shooting purposes!!", 2);
 		}
-		var send_output,
-			returnMethod = _callBack,
-			send         = JSON.stringify(_send);
 		if(enableDebug) { // Handle Added process of stringifying out submission
-			send_output = JSON.stringify(_send, null, " ");
-			debug("Comm/JSON Send: From- " + _from + " " + send_output, 4);
+			send_output = JSON.stringify(send, null, " ");
+			debug("Comm/JSON Send: From- " + from + " " + send_output, 4);
 		}
 		$.ajax({  
 			type: "POST",  
 			url: "php/communication.php",
 			dataType: 'text',
+			async: forcedSync, // default is true, if forcedSync came thru it would be false
 			proccessData: false,
-			data: {'data': send},
+			data: {'data': send_str},
 			cache: false, 
-			success: function(_obj) {
-				var json_obj;
+			success: function(obj) {
+				endTime      = new Date().getTime();
+				responseTime = (endTime - startTime) / 1000;
 				try {
-					json_obj = JSON.parse(_obj); // Convert back into Object (if text above)
+					json_obj = JSON.parse(obj); // Convert back into Object (if text above)
 				} catch(err) {
 					// This will typically be a string error from the server.  Lets put it into a JSON obj.
-					json_obj = {status: 'fatal', msg: _obj};
+					json_obj = {status: 'fatal', msg: obj};
 				}
-				
+				dnsDrag = responseTime - parseFloat(json_obj.rt);
+				debug("Comm: Ajax Response Time: " + responseTime + "ms DNS Drag approx: " + dnsDrag + "ms", 3);
 				if(enableDebug) {
-					var recieve_output = JSON.stringify(json_obj, null, " ");
-				  	switch(json_obj.status) {
-						case "success":
-							debug('Comm/JSON Receive: ' + recieve_output, 4);
-					  		break;
-					  	case "error":
-					  	case "fatal":
-					  		debug('Comm/JSON Receive: ' + recieve_output, 1);
-					  		settings.isError=true;
-					  		break;
-					  	case "fail":
-					  	case "warning":
-					  		debug('Comm/JSON Receive: ' + recieve_output, 2);
-					  		break;
-					  	default:
-					  		debug("Unexpected status or no status supplied: " + recieve_output, 2);
-					  		break;
-					}
+					recieve_output = JSON.stringify(json_obj, null, " ");
+					//debug("ReturnMethod " + returnMethod.toString(), 2);
+					//if(json_obj.status) {
+					  	switch(json_obj.status) {
+							case "success":
+								debug('Comm/JSON Receive: ' + recieve_output, 4);
+						  		break;
+						  	case "error":
+						  	case "fatal":
+						  		debug('Comm/JSON Receive: ' + recieve_output, 1);
+						  		settings.isError=true;
+						  		break;
+						  	case "fail":
+						  	case "warning":
+						  		debug('Comm/JSON Receive: ' + recieve_output, 2);
+						  		break;
+						  	default:
+						  		debug("Unexpected status or no status supplied: " + recieve_output, 2);
+						  		break;
+						}
+					//} else {
+					//	debug("No status supplied - " + recieve_output, 2);
+					//}
 				}
 				// Pass back to requestor
 				returnMethod(json_obj);
-		},
-			error: function(_xhr, _desc, _exceptionobj) {
+			},
+			error: function(xhr, desc, exceptionobj) {
 				// Error Handling
-				returnMethod("{error: 'Requested by: " + _from + "  :: " + _desc + " :: " + _xhr.status + " " + _xhr.statusText + "'}");
-				debug("Communication: Sorry a server error has occurred. Please notify a administrator. Requested by: " + _from + "  :: " + _desc + " :: " + _xhr.status + " " + _xhr.statusText + " :: " + _exceptionobj, 1);
+				returnMethod("{error: 'Requested by: " + from + "  :: " + desc + " :: " + xhr.status + " " + xhr.statusText + "'}");
+				debug("Communication: Sorry a server error has occurred. Please notify a administrator. Requested by: " + from + "  :: " + desc + " :: " + xhr.status + " " + xhr.statusText + " :: " + exceptionobj, 1);
 		    }
 	    });
   	};
@@ -96,4 +126,6 @@ function Communication(options) {
 	this.set = function(name, value) {
 		settings[name] = value;
 	};
+	
+	return true;
 }
