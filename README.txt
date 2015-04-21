@@ -1,6 +1,7 @@
 HiveLMS
 Special Note: JQuery 1.7+ fixes a console error around event.layerX and Y.  If you download this project and want to remove that error, thats how to do it.
 
+Note: This project is not maintained, simply was used as a point of reference.  Much of the code base is outdated at this point, and I would not recommend using any of the supplied SCORM Runtime work in a production environment.  It was mainly just to get demos working.
 
 About:
 This started off as a side project for multi devices, but the goal is to eventually get full "typical" support for ingesting proprietary and SCORM 2004 content.
